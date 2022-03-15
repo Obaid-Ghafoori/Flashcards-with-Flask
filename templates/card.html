@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Flash Card{% endblock %}
+
+{% block content %}
+    <h1>Flash Card</h1>
+    Firstname: {{ card.firstname }} <br>
+    Lastname:   {{ card.lastname }} <br>
+    Age:     {{ card.age }} <br>
+    <p>
+        <a href="{{ url_for('welcome') }}">Home</a>
+        <button>
+        {% if index < max_index %}
+            <a href="{{ url_for('card', index=index+1) }}">
+                Next card
+            </a>
+        {% else %}
+            <a href="{{ url_for('card', index=0) }}">
+                Start over
+            </a>
+        {% endif %}
+        </button>
+    </p>
+    <a href="{{ url_for('remove_card', index=index) }}">Remove this card</a>
+{% endblock %}

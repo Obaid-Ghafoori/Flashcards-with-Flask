@@ -1,0 +1,12 @@
+{% extends "base.html %}
+
+{% block title %} Hello from index page{% endblock %}
+
+{% block content %}
+    <h1>Hello from index page</h1>
+    {% if name %}
+        <h1> hello {{ name| upper }}  to ASML</h1>
+    {% else %}
+        <h1>Hello, World!</h1>
+    {% endif %}
+{% endblock %}
